@@ -22,7 +22,8 @@
 	<nav class="navbar fixed-top mobile-nav">
 		<div class="container logo-icon">
 			<img src="asset/img/5huruf.svg" alt="5huruf">
-			<a href="#"><i data-feather="x" class="icon icon-nav"></i></a>
+			<a class="icon icon-nav"><i data-feather="x"></i></a>
+			<a class="icon icon-nav tidak-tampil"><i data-feather="search"></i></a>
 		</div>
 		<div class="search-bar my-5 text-center">
 			<div class=" container">
@@ -31,23 +32,27 @@
 						<div class="input-spesifik">
 							<ul class="input-spesifik-item justify-content-between">
 								<li>
-									<input type="text" class="text-center" maxlength="1"><br>
+									<input type="text" autocomplete="off" class="text-center" id="pertama" maxlength="1"
+										onkeyup="clickEvent(this, 'kedua')"><br>
 									<p class="posisi">1</p>
 								</li>
 								<li>
-									<input type="text" class="text-center" maxlength="1"><br>
+									<input type="text" autocomplete="off" class="text-center" id="kedua" maxlength="1"
+										onkeyup="clickEvent(this, 'ketiga')"><br>
 									<p class="posisi">2</p>
 								</li>
 								<li>
-									<input type="text" class="text-center" maxlength="1"><br>
+									<input type="text" autocomplete="off" class="text-center" id="ketiga" maxlength="1"
+										onkeyup="clickEvent(this, 'keempat')"><br>
 									<p class="posisi">3</p>
 								</li>
 								<li>
-									<input type="text" class="text-center" maxlength="1"><br>
+									<input type="text" autocomplete="off" class="text-center" id="keempat" maxlength="1"
+										onkeyup="clickEvent(this, 'kelima')"><br>
 									<p class="posisi">4</p>
 								</li>
 								<li>
-									<input type="text" class="text-center" maxlength="1"><br>
+									<input type="text" autocomplete="off" class="text-center" id="kelima" maxlength="1"><br>
 									<p class="posisi">5</p>
 								</li>
 							</ul>
