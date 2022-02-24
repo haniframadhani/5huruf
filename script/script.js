@@ -12,23 +12,26 @@ const inputSpesifik = document.getElementById('input-spesifik');
 // 	if (value) e.target.value = e.target.value.substring(0, 1)
 // }
 
-function clickEvent(first, last) {
-	if (first.value.lenght) {
-		document.getElementById(last).focus();
-	}
-}
+// function clickEvent(first, last) {
+// 	if (first.value.lenght) {
+// 		document.getElementById(last).focus();
+// 	}
+// }
 
-inputSpesifik.addEventListener('click', function () {
-	console.log(inputSpesifik);
-});
-
-searchBtn.addEventListener('click', function () {
+searchBtn.onclick = () => {
+	iconNav.forEach((icon, i) => {
+		let index = 1;
+		if (index > iconNav.length) index = 0;
+		const display = iconNav[index - 1].style.display;
+		index++;
+		display == "none" ? (icon.style.display = "block") : (icon.style.display = "none");
+	});
 	searchBar.classList.toggle('tutup-search');
-});
+};
 
 iconNav.forEach((icon, i) => {
 	icon.onclick = () => {
-		let next = i + 1
+		let next = i + 1;
 		if (next >= iconNav.length) next = 0;
 		icon.style.display = "none";
 		iconNav[next].style.display = "block";
