@@ -126,6 +126,10 @@ nav {
   -o-border-radius: 8px;
 }
 
+.input-tidak-spesifik input:focus{
+  outline: 3px solid var(--300);
+}
+
 .label-input-tidak-spesifik {
   margin-left: .625em;
 }

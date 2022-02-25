@@ -12,11 +12,6 @@ const inputSpesifik = document.getElementById('input-spesifik');
 // 	if (value) e.target.value = e.target.value.substring(0, 1)
 // }
 
-// function clickEvent(first, last) {
-// 	if (first.value.lenght) {
-// 		document.getElementById(last).focus();
-// 	}
-// }
 
 searchBtn.onclick = () => {
 	iconNav.forEach((icon, i) => {
@@ -38,3 +33,9 @@ iconNav.forEach((icon, i) => {
 		searchBar.classList.toggle('tutup-search');
 	}
 });
+
+function clickEvent(first, last) {
+	if (first.value.length) {
+		document.getElementById(last).focus();
+	}
+}
