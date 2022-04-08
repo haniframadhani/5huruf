@@ -57,6 +57,7 @@ nav {
 	/* min-height: 100vh; */
 	background-color: var(--400);
 	/* opacity: 0; */
+  /* display: none !important; */
 }
 
 .logo-icon {
@@ -196,12 +197,24 @@ main {
   /* min-height: 100%; */
 }
 
+.empty-state {
+  max-height: 100%;
+}
+
+.error-message {
+  color: var(--800);
+}
+
+.illustration {
+  max-height: 400px;
+}
+
 .card {
   border: none;
   font-family: 'Satoshi-Regular';
 }
 
-.hasil {
+.kata {
   background-color: var(--100);
   padding: .625em;
   box-shadow: 4px 4px 30px rgba(0, 0, 0, .1);
