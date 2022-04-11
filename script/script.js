@@ -67,25 +67,27 @@ function tutupSearch() {
 
 // search word
 function searchWord(p1, p2, p3, p4, p5, inc, exc) {
-	inc = inc.toLowerCase();
-	exc = exc.toLowerCase();
+	// inc = inc.toLowerCase();
+	// exc = exc.toLowerCase();
 	const inputSpesifik = [p1, p2, p3, p4, p5]; //input
-	const inputTermasukSplit = inc.split(/,\s*/); //input
-	const inputTidakTermasukSplit = exc.split(/,\s*/); //input
+	const inputTermasukSplit = inc.toLowerCase().split(/,\s*/); //input
+	const inputTidakTermasukSplit = exc.toLowerCase().split(/,\s*/); //input
+	console.log(inputTermasukSplit);
+	console.log(inputTidakTermasukSplit);
 	fetch('word-list/word-list.json')
 		.then(response => response.json())
 		.then(response => {
 			const kata = response.indonesia;
 			let card = '';
 			const resultInc = kata.filter(val => inputTermasukSplit.every(v => val.includes(v)));
-			const resultExc = kata.filter(val => inputTidakTermasukSplit.every(v => !val.includes(v)));
+			const resultExc = kata.filter(val => inputTidakTermasukSplit.every(v => val.includes(v)));
 			// output
 			if (inputTermasukSplit != '' && inputTidakTermasukSplit != '' && inputSpesifik.some(Boolean) == true) {
 				const resultIncExc = resultInc.filter(val => inputTidakTermasukSplit.every(v => val.includes(v)));
-				let split;
+				// let split;
 				// resultIncExc.forEach(incExc => split += incExc.split(''));
-				const finalResult = '';
-				console.log(inputSpesifik);
+				// const finalResult = '';
+				// console.log(inputSpesifik);
 				// const kecil = inputSpesifik.toLowerCase();
 				// console.log(kecil);
 			} else if (inputTermasukSplit != '' && inputTidakTermasukSplit == '' && inputSpesifik.some(Boolean) == true) {
@@ -99,9 +101,10 @@ function searchWord(p1, p2, p3, p4, p5, inc, exc) {
 				console.log('oke');
 			} else if (inputTermasukSplit != '' && inputTidakTermasukSplit != '' && inputSpesifik.some(Boolean) == false) {
 				// mencari kata dengan huruf tertentu di resultInc
-				const resultIncExc = resultInc.filter(val => inputTidakTermasukSplit.every(v => val.includes(v)));
+				const resultIncExc = resultInc.filter(val => inputTidakTermasukSplit.every(v => !val.includes(v)));
+				// const resultIncExc2 = resultIncExc.filter(val => inputTidakTermasukSplit.every(v => val.includes(v)));
 				// membuang kata di resultInc yang sama dengan resultIncExc
-				const finalResult = resultInc.filter((e) => resultIncExc.indexOf(e) === -1);
+				const finalResult = resultInc.filter((e) => resultIncExc.indexOf(e) > -1);
 				if (finalResult == '') {
 					card = showEmpty();
 				}
