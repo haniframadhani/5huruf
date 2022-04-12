@@ -72,8 +72,6 @@ function searchWord(p1, p2, p3, p4, p5, inc, exc) {
 	const inputSpesifik = [p1, p2, p3, p4, p5]; //input
 	const inputTermasukSplit = inc.toLowerCase().split(/,\s*/); //input
 	const inputTidakTermasukSplit = exc.toLowerCase().split(/,\s*/); //input
-	console.log(inputTermasukSplit);
-	console.log(inputTidakTermasukSplit);
 	fetch('word-list/word-list.json')
 		.then(response => response.json())
 		.then(response => {
