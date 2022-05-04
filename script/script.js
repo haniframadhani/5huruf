@@ -67,8 +67,6 @@ function tutupSearch() {
 
 // search word
 function searchWord(p1, p2, p3, p4, p5, inc, exc) {
-	// inc = inc.toLowerCase();
-	// exc = exc.toLowerCase();
 	const inputSpesifik = [p1, p2, p3, p4, p5]; //input
 	const inputTermasukSplit = inc.toLowerCase().split(/,\s*/); //input
 	const inputTidakTermasukSplit = exc.toLowerCase().split(/,\s*/); //input
@@ -78,46 +76,53 @@ function searchWord(p1, p2, p3, p4, p5, inc, exc) {
 			const kata = response.indonesia;
 			let card = '';
 			const resultInc = kata.filter(val => inputTermasukSplit.every(v => val.includes(v)));
-			const resultExc = kata.filter(val => inputTidakTermasukSplit.every(v => val.includes(v)));
+			const resultExc = kata.filter(val => inputTidakTermasukSplit.every(v => !val.includes(v)));
 			// output
-			if (inputTermasukSplit != '' && inputTidakTermasukSplit != '' && inputSpesifik.some(Boolean) == true) {
-				const resultIncExc = resultInc.filter(val => inputTidakTermasukSplit.every(v => val.includes(v)));
-				// let split;
-				// resultIncExc.forEach(incExc => split += incExc.split(''));
-				// const finalResult = '';
-				// console.log(inputSpesifik);
-				// const kecil = inputSpesifik.toLowerCase();
-				// console.log(kecil);
-			} else if (inputTermasukSplit != '' && inputTidakTermasukSplit == '' && inputSpesifik.some(Boolean) == true) {
-				const finalResult = '';
-				console.log('oke');
-			} else if (inputTermasukSplit == '' && inputTidakTermasukSplit != '' && inputSpesifik.some(Boolean) == true) {
-				const finalResult = '';
-				console.log('oke');
-			} else if (inputTermasukSplit == '' && inputTidakTermasukSplit == '' && inputSpesifik.some(Boolean) == true) {
-				const finalResult = '';
-				console.log('oke');
-			} else if (inputTermasukSplit != '' && inputTidakTermasukSplit != '' && inputSpesifik.some(Boolean) == false) {
+			if (inputTermasukSplit != '' && inputTidakTermasukSplit != '' && inputSpesifik.some(Boolean) == true) { // 1 1 1
+				const resultIncExc = resultInc.filter(val => inputTidakTermasukSplit.every(v => !val.includes(v)));
+				const finalResult = resultIncExc.filter(val => inputSpesifik.every((val2, i) => val2 ? val[i] === val2 : true));
+				if (finalResult == '') {
+					card = showEmpty();
+				}
+				finalResult.forEach(r => card += showResult(r));
+			} else if (inputTermasukSplit != '' && inputTidakTermasukSplit == '' && inputSpesifik.some(Boolean) == true) { // 1 0 1
+				const finalResult = resultInc.filter(val => inputSpesifik.every((val2, i) => val2 ? val[i] === val2 : true));
+				if (finalResult == '') {
+					card = showEmpty();
+				}
+				finalResult.forEach(r => card += showResult(r));
+			} else if (inputTermasukSplit == '' && inputTidakTermasukSplit != '' && inputSpesifik.some(Boolean) == true) { // 0 1 1
+				const finalResult = resultExc.filter(val => inputSpesifik.every((val2, i) => val2 ? val[i] === val2 : true));
+				if (finalResult == '') {
+					card = showEmpty();
+				}
+				finalResult.forEach(r => card += showResult(r));
+			} else if (inputTermasukSplit == '' && inputTidakTermasukSplit == '' && inputSpesifik.some(Boolean) == true) { // 0 0 1
+				const finalResult = response.filter(val => inputSpesifik.every((val2, i) => val2 ? val[i] === val2 : true));
+				if (finalResult == '') {
+					card = showEmpty();
+				}
+				finalResult.forEach(r => card += showResult(r));
+			} else if (inputTermasukSplit != '' && inputTidakTermasukSplit != '' && inputSpesifik.some(Boolean) == false) { // 1 1 0
 				// mencari kata dengan huruf tertentu di resultInc
 				const resultIncExc = resultInc.filter(val => inputTidakTermasukSplit.every(v => !val.includes(v)));
-				// const resultIncExc2 = resultIncExc.filter(val => inputTidakTermasukSplit.every(v => val.includes(v)));
 				// membuang kata di resultInc yang sama dengan resultIncExc
 				const finalResult = resultInc.filter((e) => resultIncExc.indexOf(e) > -1);
 				if (finalResult == '') {
 					card = showEmpty();
 				}
 				finalResult.forEach(r => card += showResult(r));
-			} else if (inputTermasukSplit != '' && inputTidakTermasukSplit == '' && inputSpesifik.some(Boolean) == false) {
+			} else if (inputTermasukSplit != '' && inputTidakTermasukSplit == '' && inputSpesifik.some(Boolean) == false) { // 1 0 0
 				if (resultInc == '') {
 					card = showEmpty();
 				}
 				resultInc.forEach(r => card += showResult(r));
-			} else if (inputTermasukSplit == '' && inputTidakTermasukSplit != '' && inputSpesifik.some(Boolean) == false) {
+			} else if (inputTermasukSplit == '' && inputTidakTermasukSplit != '' && inputSpesifik.some(Boolean) == false) { // 0 1 0
 				if (resultExc == '') {
 					card = showEmpty();
 				}
 				resultExc.forEach(r => card += showResult(r));
-			} else if (inputTermasukSplit == '' && inputTidakTermasukSplit == '' && inputSpesifik.some(Boolean) == false) {
+			} else if (inputTermasukSplit == '' && inputTidakTermasukSplit == '' && inputSpesifik.some(Boolean) == false) { // 0 0 0
 				card = showBlank();
 			}
 
