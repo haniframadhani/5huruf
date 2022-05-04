@@ -80,6 +80,8 @@ function searchWord(p1, p2, p3, p4, p5, inc, exc) {
 			// output
 			if (inputTermasukSplit != '' && inputTidakTermasukSplit != '' && inputSpesifik.some(Boolean) == true) { // 1 1 1
 				const resultIncExc = resultInc.filter(val => inputTidakTermasukSplit.every(v => !val.includes(v)));
+				// Di code tersebut, saya bikin supaya ngecek pertama-tama apakah si val2 ini berupa string kosong atau bukan. Kalau memang string kosong, maka otomatis dibikin true (karena bisa ngematch semua karakter pengennya). Kalau bukan string kosong maka di cek apakah di variable val pada index yang sama dengan val2 (index nya adalah i) sama dengan val2.
+				// penjelasan kode dibawah
 				const finalResult = resultIncExc.filter(val => inputSpesifik.every((val2, i) => val2 ? val[i] === val2 : true));
 				if (finalResult == '') {
 					card = showEmpty();
