@@ -100,7 +100,7 @@ function searchWord(p1, p2, p3, p4, p5, inc, exc) {
 				}
 				finalResult.forEach(r => card += showResult(r));
 			} else if (inputTermasukSplit == '' && inputTidakTermasukSplit == '' && inputSpesifik.some(Boolean) == true) { // 0 0 1
-				const finalResult = response.filter(val => inputSpesifik.every((val2, i) => val2 ? val[i] === val2 : true));
+				const finalResult = kata.filter(val => inputSpesifik.every((val2, i) => val2 ? val[i] === val2 : true));
 				if (finalResult == '') {
 					card = showEmpty();
 				}
