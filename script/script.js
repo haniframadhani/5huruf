@@ -149,7 +149,7 @@ function showBlank() {
 		<div class="empty-state blank text-center">
 			<h3 class="error-message">kamu tidak mengisikan apapun</h3>
 			<p>berikan sedikit petunjuk untuk dapat menemukan kata yang kamu cari</p>
-			<img class="illustration img-fluid" src="asset/img/searching.svg">
+			<img class="illustration img-fluid" src="asset/img/searching.svg" alt="illustrasi tidak menginputkan apapun">
 		</div>
 	`
 }
@@ -159,7 +159,7 @@ function showEmpty() {
 		<div class="empty-state empty text-center">
 			<h3 class="empty-state">kata tidak ditemukan</h3>
 			<p>beritahu jika kata tersebut benar-benar ada beritahu <a href="https://forms.gle/3ykaxYQXUcac3uM27" target="_blank" rel="noopener noreferer">disini</a></p>
-			<img class="illustration img-fluid" src="asset/img/empty.svg">
+			<img class="illustration img-fluid" src="asset/img/empty.svg" alt="illustrasi pencarian tidak ditemukan">
 		</div>
 	`
 }
