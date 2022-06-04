@@ -4,3 +4,5 @@ fitur :
 - pencarian kata dengan huruf yang ada dalam kata
 - pencarian kata dengan huruf yang tidak ada dalam kata
 - pencarian kata dengan posisi huruf yang spesifik
+
+fun fact : ada sebanyak 6132 kata yang saya input
