@@ -196,6 +196,18 @@ nav {
   box-shadow: none;
 }
 
+.tutorial {
+  color: var(--100);
+}
+
+.tutorial:hover {
+  color: var(--800);
+}
+
+.tutorial:active {
+  color: var(--900);
+}
+
 main {
   min-height: calc(100vh - 180px);
 }
@@ -246,6 +258,88 @@ footer {
 
 .footer {
   color: var(--100);
+}
+
+.tutup {
+  border-radius: .25em;
+  -webkit-border-radius: .25em;
+  -moz-border-radius: .25em;
+  -ms-border-radius: .25em;
+  -o-border-radius: .25em;
+}
+
+.jangan-tampil {
+  font-family: 'Satoshi-Regular';
+  color: var(--100);
+  background-color: var(--700);
+  text-transform: capitalize;
+  border-radius: .25em;
+  -webkit-border-radius: .25em;
+  -moz-border-radius: .25em;
+  -ms-border-radius: .25em;
+  -o-border-radius: .25em;
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+}
+
+.jangan-tampil:hover {
+  font-family: 'Satoshi-Regular';
+  color: var(--100);
+  background-color: var(--800);
+}
+
+.modal-body,
+.modal-footer {
+  background-color: var(--400);
+}
+
+.modal-footer {
+  border-top: none;
+}
+
+.modal-header {
+  background-color: var(--white);
+}
+
+.kotak-kata {
+  display: flex;
+  justify-content: center;
+}
+
+.kotak-huruf {
+  width: 3em;
+  height: 3em;
+  text-transform: capitalize;
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-body p {
+  margin: 0;
+}
+
+.gambar {
+  width: 100%;
+  height: 2em;
+  background-color: red;
+  /* overflow: hidden; */
+}
+
+.benar {
+  background-color: #14813D !important;
+}
+
+.kurang-tepat {
+  background-color: #CB8A05 !important;
+}
+
+.tidak-ada {
+  background-color: #364150 !important;
 }
 
 @media (max-width: 575.98px) {

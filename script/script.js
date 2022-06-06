@@ -15,6 +15,9 @@ const inputSpesifikKelima = document.getElementById('kelima');
 const inputTermasuk = document.getElementById('termasuk');
 const inputTidakTermasuk = document.getElementById('tidak-termasuk');
 const hasilHtml = document.querySelector('.hasil');
+const myModal = new bootstrap.Modal(document.getElementById("modal"));
+const modal = document.querySelector('.tutorial');
+const dontShowBtn = document.querySelector('.jangan-tampil');
 
 // close search dan search word
 searchBtn.onclick = () => {
@@ -163,3 +166,41 @@ function showEmpty() {
 		</div>
 	`
 }
+
+
+function setCookie(condition) {
+	document.cookie = "janganTampil=" + condition + ";path=/";
+}
+
+function getCookie(condition) {
+	let kondisi = condition + "=";
+	let decodedCookie = decodeURIComponent(document.cookie);
+	let ca = decodedCookie.split(';');
+	for (let i = 0; i < ca.length; i++) {
+		let c = ca[i];
+		while (c.charAt(0) == ' ') {
+			c = c.substring(1);
+		}
+		if (c.indexOf(kondisi) == 0) {
+			return c.substring(kondisi.length, c.length);
+		}
+	}
+	return '';
+}
+
+function checkCookie() {
+	let tampil = getCookie("janganTampil");
+	if (tampil != 'true') {
+		myModal.show();
+	}
+}
+
+
+modal.addEventListener('click', () => {
+	myModal.show();
+});
+
+dontShowBtn.addEventListener('click', () => {
+	let dontShow = true;
+	setCookie(dontShow);
+});
