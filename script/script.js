@@ -17,7 +17,7 @@ const inputTidakTermasuk = document.getElementById('tidak-termasuk');
 const hasilHtml = document.querySelector('.hasil');
 const myModal = new bootstrap.Modal(document.getElementById("modal"));
 const modal = document.querySelector('.tutorial');
-const dontShowBtn = document.querySelector('.jangan-tampil');
+const checkbox = document.getElementById('remember');
 
 // close search dan search word
 searchBtn.onclick = () => {
@@ -189,9 +189,12 @@ function getCookie(condition) {
 }
 
 function checkCookie() {
-	let tampil = getCookie("janganTampil");
-	if (tampil != 'true') {
+	let tampil = (getCookie("janganTampil") === 'true');
+	if (tampil != true) {
+		checkbox.checked = false;
 		myModal.show();
+	} else {
+		checkbox.checked = true;
 	}
 }
 
@@ -200,7 +203,12 @@ modal.addEventListener('click', () => {
 	myModal.show();
 });
 
-dontShowBtn.addEventListener('click', () => {
-	let dontShow = true;
+checkbox.addEventListener('change', e => {
+	let dontShow;
+	if (e.target.checked) {
+		dontShow = e.target.value;
+	} else {
+		dontShow = false;
+	}
 	setCookie(dontShow);
 });
