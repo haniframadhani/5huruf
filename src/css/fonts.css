@@ -1,9 +1,9 @@
 @font-face {
     font-family: 'satoshi-regular';
-    src: url('../asset/fonts/Satoshi-regular.woff2') format('woff2');
-    src: url('../asset/fonts/Satoshi-regular.woff') format('woff'),
-    url('../asset/fonts/Satoshi-regular.woff2') format('woff2'),
-    url('../asset/fonts/Satoshi-regular.tff') format('truetype');
+    src: url('../assets/fonts/Satoshi-Regular.woff') format('woff2');
+    src: url('../assets/fonts/Satoshi-regular.woff') format('woff'),
+        url('../assets/fonts/Satoshi-regular.woff2') format('woff2'),
+        url('../assets/fonts/Satoshi-regular.tff') format('truetype');
     font-display: swap;
     font-style: normal;
     font-weight: 400;
@@ -11,10 +11,10 @@
 
 @font-face {
     font-family: 'satoshi-italic';
-    src: url('../asset/fonts/Satoshi-Italic.woff2') format('woff2');
-    src: url('../asset/fonts/Satoshi-Italic.woff') format('woff'),
-    url('../asset/fonts/Satoshi-Italic.woff2') format('woff2'),
-    url('../asset/fonts/Satoshi-Italic.tff') format('truetype');
+    src: url('../assets/fonts/Satoshi-Italic.woff2') format('woff2');
+    src: url('../assets/fonts/Satoshi-Italic.woff') format('woff'),
+        url('../assets/fonts/Satoshi-Italic.woff2') format('woff2'),
+        url('../assets/fonts/Satoshi-Italic.tff') format('truetype');
     font-display: swap;
     font-style: italic;
     font-weight: 400;
@@ -22,10 +22,10 @@
 
 @font-face {
     font-family: 'satoshi-bold';
-    src: url('../asset/fonts/Satoshi-Bold.woff2') format('woff2');
-    src: url('../asset/fonts/Satoshi-Bold.woff') format('woff'),
-    url('../asset/fonts/Satoshi-Bold.woff2') format('woff2'),
-    url('../asset/fonts/Satoshi-Bold.tff') format('truetype');
+    src: url('../assets/fonts/Satoshi-Bold.woff2') format('woff2');
+    src: url('../assets/fonts/Satoshi-Bold.woff') format('woff'),
+        url('../assets/fonts/Satoshi-Bold.woff2') format('woff2'),
+        url('../assets/fonts/Satoshi-Bold.tff') format('truetype');
     font-display: swap;
     font-style: normal;
     font-weight: 700;
