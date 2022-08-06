@@ -9,6 +9,7 @@ function Searching() {
       data-name='Layer 1'
       version='1.1'
       viewBox='0 0 1104.469 797.515'
+      className='illustration img-fluid'
     >
       <path fill='#3f3d56' d='M959.049 388.464H968.881V776.809H959.049z'></path>
       <path

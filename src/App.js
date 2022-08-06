@@ -1,7 +1,7 @@
+import Footer from "./components/footer/Footer";
 import Modal from "./components/modal/Modal";
 import Navbar from "./components/navbar/Navbar";
 import Show from "./components/show-result/Show";
-import React, { useEffect, useRef, useState } from "react";
 
 function App() {
 
@@ -9,6 +9,7 @@ function App() {
     <div className="App">
       <Navbar></Navbar>
       <Show></Show>
+      <Footer></Footer>
       <Modal></Modal>
     </div>
   );

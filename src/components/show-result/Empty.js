@@ -9,6 +9,7 @@ function Empty() {
       data-name='Layer 1'
       version='1.1'
       viewBox='0 0 862.703 644.786'
+      className='illustration img-fluid'
     >
       <path
         fill='#9e616a'
