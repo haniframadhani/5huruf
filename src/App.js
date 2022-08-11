@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import Footer from "./components/footer/Footer";
-import Modal from "./components/modal/Modal";
 import Navbar from "./components/navbar/Navbar";
 import Show from "./components/show-result/Show";
+import Tutorial from "./components/modal/Tutorial"
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(["janganTampil"]);
@@ -11,19 +11,29 @@ function App() {
   const [result, setResult] = useState([]);
   const [isCookieSet, setIsCookieSet] = useState(false);
 
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   function checkCookie() {
-    let tampil = cookies.janganTampil === 'true';
+    const tampil = cookies.janganTampil === 'true';
     if (tampil) {
       setIsCookieSet(true);
+    } else {
+      handleShow();
     }
   }
 
+  useEffect(() => {
+    checkCookie();
+  }, []);
+
   return (
-    <div onLoad={checkCookie} className="App">
-      <Navbar isInputEmpty={isInputEmpty} setEmptyState={setEmptyState} result={result} setResult={setResult}></Navbar>
+    <div className="App">
+      <Navbar isInputEmpty={isInputEmpty} setEmptyState={setEmptyState} result={result} setResult={setResult} handleShow={handleShow}></Navbar>
       <Show isInputEmpty={isInputEmpty} result={result}></Show>
       <Footer></Footer>
-      <Modal isCookieSet={isCookieSet} setIsCookieSet={setIsCookieSet} cookies={cookies} setCookie={setCookie} removeCookie={removeCookie} ></Modal>
+      <Tutorial isCookieSet={isCookieSet} setIsCookieSet={setIsCookieSet} cookies={cookies} setCookie={setCookie} removeCookie={removeCookie} handleClose={handleClose} show={show} ></Tutorial>
     </div>
   );
 }

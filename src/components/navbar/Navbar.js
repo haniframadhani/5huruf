@@ -3,7 +3,7 @@ import LimaHuruf from './LimaHuruf';
 import React, { useEffect, useRef, useState } from "react";
 import SearchWord from '../../SearchWord';
 
-export default function Navbar({ isInputEmpty, setEmptyState, result, setResult }) {
+export default function Navbar({ isInputEmpty, setEmptyState, result, setResult, handleShow }) {
 
   // input spesifik
   const inputSpesifikPertama = useRef();
@@ -135,7 +135,7 @@ export default function Navbar({ isInputEmpty, setEmptyState, result, setResult 
           </div>
           <button type="button" onClick={handleButton} className="btn btn-cari">cari!</button>
           <div className="info text-start">
-            <a className="tutorial" data-bs-toggle="modal" data-bs-target="#modal"><HelpCircle /></a>
+            <a className="tutorial" onClick={handleShow}><HelpCircle /></a>
           </div>
         </div>
       </div>
