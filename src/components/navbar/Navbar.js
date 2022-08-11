@@ -1,8 +1,9 @@
 import { X, Search, HelpCircle } from 'react-feather';
 import LimaHuruf from './LimaHuruf';
 import React, { useEffect, useRef, useState } from "react";
+import SearchWord from '../../SearchWord';
 
-export default function Navbar() {
+export default function Navbar({ isInputEmpty, setEmptyState, result, setResult }) {
 
   // input spesifik
   const inputSpesifikPertama = useRef();
@@ -67,17 +68,25 @@ export default function Navbar() {
 
   // change icon ketika diklik
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const handleToggle = () => {
+  const handleIcon = () => {
     setIsSearchOpen(!isSearchOpen);
   }
-
-  // tutup search
+  const handleButton = () => {
+    if (spesifikPertama != '' || spesifikKedua != '' || spesifikKetiga != '' || spesifikKeempat != '' || spesifikKelima != '' || termasuk != '' || tidakTermasuk != '') {
+      let hasil;
+      let word = SearchWord(spesifikPertama, spesifikKedua, spesifikKetiga, spesifikKeempat, spesifikKelima, termasuk, tidakTermasuk).then(response => { hasil = response; setResult(hasil) });
+      setEmptyState(false);
+    } else {
+      setEmptyState(true);
+    }
+    setIsSearchOpen(!isSearchOpen);
+  }
 
   return (
     <nav className="navbar fixed-top mobile-nav">
       <div className="container logo-icon">
         <LimaHuruf />
-        <a className="icon icon-nav" onClick={handleToggle} >{isSearchOpen ? <Search /> : <X />}</a>
+        <a className="icon icon-nav" onClick={handleIcon} >{isSearchOpen ? <Search /> : <X />}</a>
       </div >
       <div className={`search-bar my-5 text-center ${isSearchOpen ? 'tutup-search' : ''}`} >
         <div className="container">
@@ -124,9 +133,9 @@ export default function Navbar() {
               <div className="form-text mt-0 mb-4">pisahkan dengan koma</div>
             </div>
           </div>
-          <button type="button" onClick={handleToggle} className="btn btn-cari">cari!</button>
+          <button type="button" onClick={handleButton} className="btn btn-cari">cari!</button>
           <div className="info text-start">
-            <a className="tutorial"><HelpCircle /></a>
+            <a className="tutorial" data-bs-toggle="modal" data-bs-target="#modal"><HelpCircle /></a>
           </div>
         </div>
       </div>

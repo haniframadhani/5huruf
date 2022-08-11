@@ -1,6 +1,15 @@
 import { createPortal } from "react-dom";
 import '../../css/style.css'
-export default function Modal() {
+export default function Modal({ cookies, setCookie, removeCookie, isCookieSet, setIsCookieSet }) {
+  const handleSetCookie = e => {
+    if (e.target.checked) {
+      setCookie("janganTampil", true, { path: '/' });
+      setIsCookieSet(true);
+    } else {
+      removeCookie("janganTampil");
+      setIsCookieSet(false);
+    }
+  };
   return createPortal(
     <div className="modal fade" id="modal" tabIndex="-1" aria-labelledby="modalLabel" aria-hidden="true">
       <div className="modal-dialog modal-dialog-scrollable modal-xl">
@@ -29,7 +38,7 @@ export default function Modal() {
             <div className="modal-footer justify-content-center action-group">
               <button type="button" className="btn btn-secondary tutup" data-bs-dismiss="modal">tutup</button>
               <div className="jangan-tampil">
-                <input type="checkbox" name="remember" id="remember" value="true"></input>
+                <input type="checkbox" name="remember" id="remember" onChange={handleSetCookie} checked={isCookieSet}></input>
                 <label htmlFor="remember">jangan tampilkan lagi</label>
               </div>
             </div>

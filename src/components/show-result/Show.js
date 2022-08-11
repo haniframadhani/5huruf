@@ -1,15 +1,20 @@
 import EmptyState from "./EmptyState";
-import { useState } from "react";
+import Card from "./Card";
 
-export default function Show() {
-  const [isInputEmpty, setEmptyState] = useState(true);
+export default function Show({ isInputEmpty, result }) {
   return (
     <main>
       <div className="container" >
         <div className="hasil-pencarian" >
           <h2>hasil pencarian : </h2>
           <div className="row my-3 hasil">
-            <EmptyState isInputEmpty="isInputEmpty" setEmptyState="setEmptyState" ></EmptyState>
+            {isInputEmpty ?
+              <EmptyState isInputEmpty={isInputEmpty} />
+              :
+              result.some(Boolean) == true ?
+                result.map((kata) => (<Card key={kata} kata={kata}></Card>))
+                :
+                <EmptyState isInputEmpty={isInputEmpty} />}
           </div>
         </div>
       </div>
