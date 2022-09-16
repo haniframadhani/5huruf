@@ -32,7 +32,7 @@ function LimaHuruf() {
         >
           <tspan
             style={{
-              InkscapeFontSpecification: "'Satoshi Bold'",
+              InkscapeFontSpecification: "'Satoshi-Bold'",
               WebkitTextAlign: "center",
               textAlign: "center",
             }}
@@ -47,7 +47,7 @@ function LimaHuruf() {
             strokeMiterlimit='4'
             strokeOpacity='1'
             strokeWidth='1.587'
-            fontFamily='Satoshi'
+            fontFamily='Satoshi-Bold'
             fontSize='10.583'
             fontStretch='normal'
             fontStyle='normal'
