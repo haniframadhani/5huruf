@@ -5,6 +5,8 @@ import Navbar from "./components/navbar/Navbar";
 import Show from "./components/show-result/Show";
 import Tutorial from "./components/modal/Tutorial"
 import { Helmet } from "react-helmet";
+import ThumbnailPng from "./assets/img/Thumbnail.png";
+import ThumbnailWebp from "./assets/img/Thumbnail.webp";
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(["janganTampil"]);
@@ -39,16 +41,16 @@ function App() {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="5Huruf" />
         <meta property="og:description" content="5huruf merupakan website untuk mencari kata yang hanya memiliki 5 huruf untuk membantu bermain katla(wordle versi bahasa Indonesia)." />
-        <meta property="og:image" content="../../assets/img/Thumbnail.webp" />
-        <meta property="og:image" content="../../assets/img/Thumbnail.png" />
+        <meta property="og:image" content={ThumbnailPng} />
+        <meta property="og:image" content={ThumbnailWebp} />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="5huruf.netlify.app" />
         <meta property="twitter:url" content="https://5huruf.netlify.app/" />
         <meta name="twitter:title" content="5Huruf" />
         <meta name="twitter:description" content="5huruf merupakan website untuk mencari kata yang hanya memiliki 5 huruf untuk membantu bermain katla(wordle versi bahasa Indonesia)." />
-        <meta name="twitter:image" content="../../assets/img/Thumbnail.webp" />
-        <meta name="twitter:image" content="../../assets/img/Thumbnail.png" />
+        <meta name="twitter:image" content={ThumbnailPng} />
+        <meta name="twitter:image" content={ThumbnailWebp} />
       </Helmet>
       <Navbar isInputEmpty={isInputEmpty} setEmptyState={setEmptyState} result={result} setResult={setResult} handleShow={handleShow}></Navbar>
       <Show isInputEmpty={isInputEmpty} result={result}></Show>
