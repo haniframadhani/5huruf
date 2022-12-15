@@ -1,6 +1,6 @@
 {
-  "short_name": "5huruf",
-  "name": "5huruf",
+  "short_name": "5Huruf",
+  "name": "5Huruf",
   "icons": [
     {
       "src": "favicon16.ico",
@@ -30,7 +30,7 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#48CAE4",
   "background_color": "#ffffff",
   "developer": {
     "name": "Hanif Ramadhani",
