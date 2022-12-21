@@ -35,7 +35,7 @@ function App() {
   return (
     <div className="App">
       <Helmet>
-        <title>5Huruf</title>
+        <title>5huruf</title>
         <meta name="description" content="5huruf merupakan website untuk mencari kata yang hanya memiliki 5 huruf untuk membantu bermain katla(wordle versi bahasa Indonesia)." />
 
         <meta property="og:url" content="https://5huruf.netlify.app/" />
